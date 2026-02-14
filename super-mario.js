@@ -12,13 +12,16 @@ function setup() {
 
 function draw() {
   background(120, 190, 255); // sky
-
+  
+  // block
+  
   // ground
-  fill(60, 200, 90);
+  fill(250, 250, 250);
   rect(0, 330, width, 70);
   updateJump();
 
   drawPlayer();
+  drawBlock();
 }
 
 // ==================================================
@@ -33,10 +36,6 @@ function jump() {
 
 function keyPressed() {
   if (key === " ") jump();
-  
-  if (key === "d") moveRight();
-  
-  if (key === "a") moveLeft();
 }
 
 function moveRight() {
@@ -44,6 +43,9 @@ function moveRight() {
 }  
 function moveLeft() {
   x = x-5;
+}
+function stopMoving() {
+  x = x
 }
 
 // ==================================================
@@ -70,4 +72,17 @@ function updateJump() {
 function drawPlayer() {
   fill(255, 60, 60);
   rect(x, y, 40, 40);
+  if (key === "d") moveRight();
+  if (key === "a") moveLeft();
+}
+
+function drawBlock() {
+  fill(250, 250, 0)
+  rect(x+50, y, 40, 40);
+  fill(0, 250, 0)
+  rect(x+100, y, 40, 40);
+  fill(0, 0, 250)
+  rect(x+150, y, 40, 40);
+  fill(0, 250, 250)
+  rect(x+200, y, 40, 40);
 }
